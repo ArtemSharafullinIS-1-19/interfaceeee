@@ -18,7 +18,7 @@ namespace Интерфейсы
         }
         interface IPerson //Создание интерфейса Person
         {
-            //
+            //конструктор
             string Name { get; set; }
             string Address { get; set; }
             void Renc()
@@ -31,34 +31,38 @@ namespace Интерфейсы
             public IPerson PersonInfo { get; set; } //свойство которое будет хранить экземпляры классов
         }
 
-        public class Employees : IPerson
+        public class Employees : IPerson //применение интерфейса в классе
         {
-            public string Name { get; set; }
-            public string Address { get; set; }
+            //конструктор
+            public string Name { get; set; } //автоматические свойста
+            public string Address { get; set; } 
             public Employees(string _name, string _address)
             {
                 Name = _name;
                 Address = _address;
             }
+            //автоматические свойста
             public void Renc()
             {
                 MessageBox.Show("Вы являетесь сотрудником, не пытайтесь это сделать.", "Уведомление");
             }
         }
 
-        class User : IPerson
+        class User : IPerson //применение интерфейса в классе
         {
-            public string Name { get; set; }
+            //конструктор
+            public string Name { get; set; } //автоматические свойста
             public string Address { get; set; }
             public User(string _name, string _address)
             {
                 Name = _name;
                 Address = _address;
             }
+            //автоматические свойста
         }
-        class ConfirmUser : User, IPerson
+        class ConfirmUser : User, IPerson //применение интерфейса в классе
         {
-            public ConfirmUser(string _name, string _address) : base(_name, _address)
+            public ConfirmUser(string _name, string _address) : base(_name, _address) //с помощью base обращаемся к базовому классу
             {
                 Name = _name;
                 Address = _address;
@@ -71,7 +75,7 @@ namespace Интерфейсы
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            
+            //метод верного и не верного значения
             if (toolStripTextBox1.Text != "" && toolStripTextBox2.Text != "") { Info.check = true; MessageBox.Show("Вы успешно подтвердили свой аккаунт!"); }
             else MessageBox.Show("Введите данные в настройках");
         }

@@ -1,6 +1,6 @@
 ﻿    using System;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+
 
 namespace Интерфейсы
 {
@@ -16,6 +16,7 @@ namespace Интерфейсы
             public static string id_selected_rows = "0";
             public static bool Employee;
             public static bool check = false;
+            public static string isRenc = "";
         }
         interface IPerson //Создание интерфейса Person
         {
@@ -36,7 +37,7 @@ namespace Интерфейсы
         {
             //конструктор
             public string Name { get; set; } //автоматические свойста
-            public string Address { get; set; } 
+            public string Address { get; set; }
             public Employees(string _name, string _address)
             {
                 Name = _name;
@@ -70,6 +71,7 @@ namespace Интерфейсы
             }
             public void Renc()
             {
+                Info.isRenc += Info.id_selected_rows + " ";
                 MessageBox.Show($"Аренда мотоцикла {Info.id_selected_rows} прошла успешно!", "Уведомление");
             }
         }
@@ -83,16 +85,23 @@ namespace Интерфейсы
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            //апкаст
-            Person person = new Person();
-            if(!Info.Employee) //проверка данных, считывает сотрудников, и пользователей
-            {
-                if (!Info.check) person.PersonInfo = new User(toolStripTextBox1.Text, toolStripTextBox2.Text);
-                else person.PersonInfo = new ConfirmUser(toolStripTextBox1.Text, toolStripTextBox2.Text);
-            }
-            else person.PersonInfo = new Employees(toolStripTextBox1.Text, toolStripTextBox2.Text);
             GetSelectedIDString();
-            person.PersonInfo.Renc(); //один вызов для 3-ех классов
+            if (!Info.isRenc.Contains(Info.id_selected_rows))
+            {
+                //апкаст
+                Person person = new Person();
+                if (!Info.Employee) //проверка данных, считывает сотрудников, и пользователей
+                {
+                    if (!Info.check) person.PersonInfo = new User(toolStripTextBox1.Text, toolStripTextBox2.Text);
+                    else person.PersonInfo = new ConfirmUser(toolStripTextBox1.Text, toolStripTextBox2.Text);
+                }
+                else person.PersonInfo = new Employees(toolStripTextBox1.Text, toolStripTextBox2.Text);
+                person.PersonInfo.Renc(); //один вызов для 3-ех классов
+            }
+            else
+            {
+                MessageBox.Show($"Вы уже арендовали мотоцикл {Info.id_selected_rows}", "Уведомление");
+            }
         }
 
         //Метод получения ID выделенной строки, для последующего вызова его в нужных методах
@@ -162,22 +171,7 @@ namespace Интерфейсы
             else Info.Employee = false;
         }
 
-        private const string host = "10.90.12.113";
-        private const string port = "33333";
-        private const string database = "is_1_19_st24_KURS";
-        private const string username = "st_1_19_24";
-        private const string password = "94361216";
-        private static readonly MySqlConnection conn = GetDBConnection();
-
-        public static MySqlConnection GetDBConnection()
-        {
-            //Формируем строку подключения
-            string connString = $"server={host};port={port};user={username};database={database};password={password};";
-            //Создаём соединение с нашей строкой подключения
-            MySqlConnection conn = new MySqlConnection(connString);
-            //Возвращаем данное соединение из метода
-            return conn;
-        }
+       
 
     }
 }

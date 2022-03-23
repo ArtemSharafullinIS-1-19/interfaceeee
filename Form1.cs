@@ -1,5 +1,6 @@
 ﻿    using System;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Интерфейсы
 {
@@ -160,5 +161,29 @@ namespace Интерфейсы
             if (MessageBox.Show("Вы сотрудник?", "Вопрос", MessageBoxButtons.YesNo) == DialogResult.Yes) Info.Employee = true;
             else Info.Employee = false;
         }
+
+        private const string host = "10.90.12.113";
+        private const string port = "33333";
+        private const string database = "is_1_19_st24_KURS";
+        private const string username = "st_1_19_24";
+        private const string password = "94361216";
+        private static readonly MySqlConnection conn = GetDBConnection();
+
+        public static MySqlConnection GetDBConnection()
+        {
+            //Формируем строку подключения
+            string connString = $"server={host};port={port};user={username};database={database};password={password};";
+            //Создаём соединение с нашей строкой подключения
+            MySqlConnection conn = new MySqlConnection(connString);
+            //Возвращаем данное соединение из метода
+            return conn;
+        }
+
     }
 }
+
+    
+
+
+    
+

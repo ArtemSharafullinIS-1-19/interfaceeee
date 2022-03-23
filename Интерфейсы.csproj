@@ -7,4 +7,10 @@
     <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>..\..\..\Desktop\MySql.Data.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

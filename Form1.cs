@@ -100,7 +100,7 @@ namespace Интерфейсы
             }
             else
             {
-                MessageBox.Show($"Вы уже арендовали мотоцикл {Info.id_selected_rows}", "Уведомление");
+                MessageBox.Show($"Вы уже арендовали мотоцикл {Info.id_selected_rows}", "Уведомление"); 
             }
         }
 

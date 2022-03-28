@@ -106,7 +106,7 @@
             this.введитеИмяToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1});
             this.введитеИмяToolStripMenuItem.Name = "введитеИмяToolStripMenuItem";
-            this.введитеИмяToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.введитеИмяToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.введитеИмяToolStripMenuItem.Text = "Введите имя";
             // 
             // toolStripTextBox1
@@ -119,7 +119,7 @@
             this.введитеАдресToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox2});
             this.введитеАдресToolStripMenuItem.Name = "введитеАдресToolStripMenuItem";
-            this.введитеАдресToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.введитеАдресToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.введитеАдресToolStripMenuItem.Text = "Введите адрес";
             // 
             // toolStripTextBox2
@@ -135,6 +135,7 @@
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // Form1
             // 

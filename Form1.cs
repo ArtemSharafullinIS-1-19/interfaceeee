@@ -171,8 +171,13 @@ namespace Интерфейсы
             else Info.Employee = false;
         }
 
-       
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
 
+            if (toolStripTextBox1.Text != "" && toolStripTextBox2.Text != "") { Info.check = true; MessageBox.Show($"Отмена аренды мотоцикла {Info.id_selected_rows} прошла успешно!");;; }
+            else MessageBox.Show("Вы уже отменили аренду !");
+            
+        }
     }
 }
 

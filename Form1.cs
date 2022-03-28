@@ -126,45 +126,68 @@ namespace Интерфейсы
             DataGridViewTextBoxColumn col2 = new DataGridViewTextBoxColumn();
             col2.HeaderText = "Max Speed";
             col2.Name = "ID3";
+            DataGridViewTextBoxColumn col3 = new DataGridViewTextBoxColumn();
+            col3.HeaderText = "Цвет";
+            col3.Name = "ID4";
             this.dataGridView1.Columns.Add(col0);
             this.dataGridView1.Columns.Add(col1);
             this.dataGridView1.Columns.Add(col2);
+            this.dataGridView1.Columns.Add(col3);
 
             DataGridViewCell cel0 = new DataGridViewTextBoxCell();
             DataGridViewCell cel1 = new DataGridViewTextBoxCell();
             DataGridViewCell cel2 = new DataGridViewTextBoxCell();
+            DataGridViewCell cel3 = new DataGridViewTextBoxCell();
             DataGridViewRow row = new DataGridViewRow();
             cel0.Value = "Honda";
             cel1.Value = "FireStorm";
             cel2.Value = "176";
-            row.Cells.AddRange(cel0, cel1, cel2);
+            cel3.Value = "Синий";
+            row.Cells.AddRange(cel0, cel1, cel2, cel3);
             this.dataGridView1.Rows.Add(row);
             cel0 = new DataGridViewTextBoxCell();
             cel1 = new DataGridViewTextBoxCell();
             cel2 = new DataGridViewTextBoxCell();
+            cel3 = new DataGridViewTextBoxCell();
             row = new DataGridViewRow();
             cel0.Value = "SUZUKI";
             cel1.Value = "GSX-R1000";
             cel2.Value = "190";
-            row.Cells.AddRange(cel0, cel1, cel2);
+            cel3.Value = "Чёрный";
+            row.Cells.AddRange(cel0, cel1, cel2, cel3);
             this.dataGridView1.Rows.Add(row);
             cel0 = new DataGridViewTextBoxCell();
             cel1 = new DataGridViewTextBoxCell();
             cel2 = new DataGridViewTextBoxCell();
+            cel3 = new DataGridViewTextBoxCell();
             row = new DataGridViewRow();
             cel0.Value = "BMW";
             cel1.Value = "S1000RR";
             cel2.Value = "200+";
-            row.Cells.AddRange(cel0, cel1, cel2);
+            cel3.Value = "Чёрно-зелёный";
+            row.Cells.AddRange(cel0, cel1, cel2, cel3);
             this.dataGridView1.Rows.Add(row);
             cel0 = new DataGridViewTextBoxCell();
             cel1 = new DataGridViewTextBoxCell();
             cel2 = new DataGridViewTextBoxCell();
+            cel3 = new DataGridViewTextBoxCell();
             row = new DataGridViewRow();
             cel0.Value = "YAMAHA";
             cel1.Value = "YZF-R6";
             cel2.Value = "187";
-            row.Cells.AddRange(cel0, cel1, cel2);
+            cel3.Value = "Чёрный";
+            row.Cells.AddRange(cel0, cel1, cel2, cel3);
+            this.dataGridView1.Rows.Add(row);
+            cel0 = new DataGridViewTextBoxCell();
+            cel1 = new DataGridViewTextBoxCell();
+            cel2 = new DataGridViewTextBoxCell();
+            cel3 = new DataGridViewTextBoxCell();
+            row = new DataGridViewRow();
+            cel0.Value = "KAWASAKI";
+            cel1.Value = "NINJA 400 KRT";
+            cel2.Value = "400";
+            cel3.Value = "Красный";
+            row.Cells.AddRange(cel0, cel1, cel2, cel3);
             this.dataGridView1.Rows.Add(row);
             //msgbox с получением инфы
             if (MessageBox.Show("Вы сотрудник?", "Вопрос", MessageBoxButtons.YesNo) == DialogResult.Yes) Info.Employee = true;
@@ -174,9 +197,24 @@ namespace Интерфейсы
         private void toolStripButton4_Click(object sender, EventArgs e)
         {
 
-            if (toolStripTextBox1.Text != "" && toolStripTextBox2.Text != "") { Info.check = true; MessageBox.Show($"Отмена аренды мотоцикла {Info.id_selected_rows} прошла успешно!");;; }
-            else MessageBox.Show("Вы уже отменили аренду !");
-            
+            if (Info.check)
+            {
+                if (Info.isRenc.Contains(Info.id_selected_rows))
+                {
+                    Info.isRenc = Info.isRenc.Replace(Info.id_selected_rows + " ", "");
+                    MessageBox.Show("Успешно отменено " + Info.id_selected_rows, "Уведомление");
+                }
+                else
+                    MessageBox.Show("Аренда не требуется ", "Уведомление");
+            }
+
+            else MessageBox.Show("Сначала авторизуйтесь в настройках!","Уведомление");
+
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            GetSelectedIDString();
         }
     }
 }

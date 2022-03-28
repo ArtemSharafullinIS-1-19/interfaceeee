@@ -49,12 +49,13 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 40);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(400, 164);
+            this.dataGridView1.Size = new System.Drawing.Size(442, 232);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // toolStrip1
             // 
@@ -65,7 +66,7 @@
             this.toolStripButton4});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(400, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(442, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -106,7 +107,7 @@
             this.введитеИмяToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox1});
             this.введитеИмяToolStripMenuItem.Name = "введитеИмяToolStripMenuItem";
-            this.введитеИмяToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.введитеИмяToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.введитеИмяToolStripMenuItem.Text = "Введите имя";
             // 
             // toolStripTextBox1
@@ -119,7 +120,7 @@
             this.введитеАдресToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripTextBox2});
             this.введитеАдресToolStripMenuItem.Name = "введитеАдресToolStripMenuItem";
-            this.введитеАдресToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.введитеАдресToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.введитеАдресToolStripMenuItem.Text = "Введите адрес";
             // 
             // toolStripTextBox2
@@ -129,19 +130,19 @@
             // 
             // toolStripButton4
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(97, 22);
+            this.toolStripButton4.Text = "Отмена аренды";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 204);
+            this.ClientSize = new System.Drawing.Size(442, 232);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form1";
